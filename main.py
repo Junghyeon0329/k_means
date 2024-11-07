@@ -5,7 +5,7 @@ from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
-# 데이터 불러오기
+# 데이터 불러오기 ## 
 iris = datasets.load_iris()
 X = iris.data
 y = iris.target
@@ -23,14 +23,14 @@ kmeans.fit(df)
 df['cluster'] = kmeans.labels_
 
 # PCA로 2D로 축소
-pca = PCA(n_components=2)
+pca = PCA(n_components=3)
 df_pca = pca.fit_transform(df.drop('cluster', axis=1))
 
-# 시각화
-plt.figure(figsize=(8, 6))
-plt.scatter(df_pca[:, 0], df_pca[:, 1], c=df['cluster'], cmap='viridis', marker='o', edgecolor='k')
-plt.title('KMeans Clustering with PCA')
-plt.xlabel('Principal Component 1')
-plt.ylabel('Principal Component 2')
-plt.colorbar(label='Cluster')
-plt.show()
+# # 시각화
+# plt.figure(figsize=(8, 6))
+# plt.scatter(df_pca[:, 0], df_pca[:, 1], c=df['cluster'], cmap='viridis', marker='o', edgecolor='k')
+# plt.title('KMeans Clustering with PCA')
+# plt.xlabel('Principal Component 1')
+# plt.ylabel('Principal Component 2')
+# plt.colorbar(label='Cluster')
+# plt.show()
